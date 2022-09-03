@@ -1,5 +1,5 @@
 Todos project with reactjs.
-
-**-dark-light mode
-**-localstorage user and dark mode save
-**-crud operations with mock
+<br/>
+-dark-light mode<br/>
+-localstorage user and dark mode save<br/>
+-crud operations with mock<br/>
