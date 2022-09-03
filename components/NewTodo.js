@@ -4,7 +4,7 @@ const NewTodo= ({refresh}) => {
 const url="https://630f9f01498924524a927965.mockapi.io/todos"
 const content=useRef()
 const [checked,setChecked]=useState(false)
-
+const [todoHandler,setTodoHandler]=useState()
 const addTodo =async () => {
 const data=await fetch(url,{
     method:"POST",
@@ -25,9 +25,12 @@ refresh(result)
         <>
 <h3 style={{marginBottom:"0"}}>Add New Todo</h3>
 <div style={{displar:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"center"}}>
-<input type="text" ref={content} style={{height:"3rem",margin:"auto",width:"100%"}} />
+<input type="text" ref={content} style={{height:"3rem",margin:"auto",width:"100%"}} onChange={(e)=>setTodoHandler(e.target.value)}/>
 </div>
-<div onClick={addTodo} style={{backgroundColor:"white",padding:"0.2rem 0.2rem 0.1rem",display:"flex",justifyContent:"center",width:"5rem",margin:"auto"}}><IoIosAddCircle style={{color:"red",fontSize:"1.5rem"}} /></div>
+{todoHandler&&todoHandler.length>2?
+<div onClick={addTodo} style={{backgroundColor:"white",padding:"0.2rem 0.2rem 0.1rem",display:"flex",justifyContent:"center",width:"5rem",margin:"auto"}}><IoIosAddCircle style={{color:"red",fontSize:"1.5rem"}} /></div>:
+<p>"You need write more than 2 char :p</p>
+}
 </>
     )
 }
