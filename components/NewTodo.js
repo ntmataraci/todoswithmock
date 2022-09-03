@@ -5,7 +5,9 @@ const url="https://630f9f01498924524a927965.mockapi.io/todos"
 const content=useRef()
 const [checked,setChecked]=useState(false)
 const [todoHandler,setTodoHandler]=useState()
+const [loading,setLoading]=useState(false)
 const addTodo =async () => {
+setLoading(true)
 const data=await fetch(url,{
     method:"POST",
     headers:{
@@ -18,6 +20,8 @@ const data=await fetch(url,{
 })
 const result=await data.json()
 console.log(result)
+setTodoHandler("")
+setLoading(false)
 refresh(result)
 }
 
@@ -25,12 +29,18 @@ refresh(result)
         <>
 <h3 style={{marginBottom:"0"}}>Add New Todo</h3>
 <div style={{displar:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"center"}}>
-<input type="text" ref={content} style={{height:"3rem",margin:"auto",width:"100%"}} onChange={(e)=>setTodoHandler(e.target.value)}/>
-</div>
-{todoHandler&&todoHandler.length>2?
-<div onClick={addTodo} style={{backgroundColor:"white",padding:"0.2rem 0.2rem 0.1rem",display:"flex",justifyContent:"center",width:"5rem",margin:"auto"}}><IoIosAddCircle style={{color:"red",fontSize:"1.5rem"}} /></div>:
-<p>"You need write more than 2 char :p</p>
+    {!loading?
+<input type="text" ref={content} style={{height:"3rem",margin:"auto",width:"100%"}} onChange={(e)=>setTodoHandler(e.target.value)} value={todoHandler}/>
+:
+<p>Loading...</p>
 }
+</div>
+{!loading&&todoHandler&&todoHandler.length>2?
+<div onClick={addTodo} style={{backgroundColor:"white",padding:"0.2rem 0.2rem 0.1rem",display:"flex",justifyContent:"center",width:"5rem",margin:"auto"}}><IoIosAddCircle style={{color:"red",fontSize:"1.5rem"}} /></div>:
+<p>"You need write more</p>
+}
+
+
 </>
     )
 }

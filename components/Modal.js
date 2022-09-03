@@ -26,7 +26,7 @@ closeWindow()
 
     return(
 <>
-<div style={{position:"absolute",top:"0",left:"0",width:"100%",height:"100%",margin:"0",padding:"0",zIndex:"1",backdropFilter:"blur(10px)"}} onClick={()=>closeWindow()}>
+<div style={{position:"fixed",top:"0",left:"0",width:"100%",height:"100%",minHeight:"100vh",margin:"0",padding:"0",zIndex:"1",backdropFilter:"blur(10px)"}} onClick={()=>closeWindow()}>
     </div>
 {sendData&&
 <div style={{width:"100%",display:"flex",justifyContent:"center",marginTop:"3rem",flexWrap:"wrap",zIndex:"2",position:"absolute",top:"0",left:"0"}}>
