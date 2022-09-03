@@ -32,7 +32,7 @@ const refreshPage= (x)=> setNewDataAdded(x)
 
   return (
    <>
-<div style={{backgroundColor:!darkmode?"#a2b9bc":"#6b5b95",color:!darkmode?"#6b5b95":"#a2b9bc",width:"100vw",height:"100vh"}}>
+<div style={{backgroundColor:!darkmode?"#a2b9bc":"#6b5b95",color:!darkmode?"#6b5b95":"#a2b9bc",width:"100vw",height:"100%",minHeight:"100vh"}}>
     <Header username={username} darkMode={(x)=>setDarkmode(x)}/>
     <div style={{display:"flex",flexDirection:"column",justifyContent:"center",maxWidth:"300px",margin:"0.7rem auto",gap:"1rem"}}>
     {!logined?
