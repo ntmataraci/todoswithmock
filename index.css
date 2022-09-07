@@ -31,3 +31,14 @@ input[type='checkbox'] {
 input[type="text"]{
   font-size: 18px;
 }
+
+.icon_container{
+background-color: white;
+  border-radius:50%;
+  padding:0.2rem 0.2rem 0.1rem;
+}
+
+.icon_style{
+  color:red;
+  font-Size:1.5rem;
+}
