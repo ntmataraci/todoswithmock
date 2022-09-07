@@ -2,9 +2,9 @@ import { useRef, useState } from "react"
 import {IoIosAddCircle} from "react-icons/io"
 const NewTodo= ({refresh}) => {
 const url="https://630f9f01498924524a927965.mockapi.io/todos"
-const content=useRef()
+
 const [checked,setChecked]=useState(false)
-const [todoHandler,setTodoHandler]=useState()
+const [todoHandler,setTodoHandler]=useState("")
 const [loading,setLoading]=useState(false)
 const addTodo =async () => {
 setLoading(true)
@@ -14,7 +14,7 @@ const data=await fetch(url,{
         'Content-Type':'application/json'
         },
     body:JSON.stringify({
-        content:content.current.value,
+        content:todoHandler,
         isCompleted:checked,
     })
 })
@@ -30,7 +30,7 @@ refresh(result)
 <h3 style={{marginBottom:"0"}}>Add New Todo</h3>
 <div style={{displar:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"center"}}>
     {!loading?
-<input type="text" ref={content} style={{height:"3rem",margin:"auto",width:"100%"}} onChange={(e)=>setTodoHandler(e.target.value)} value={todoHandler}/>
+<input type="text"  style={{height:"3rem",margin:"auto",width:"100%"}} onChange={(e)=>setTodoHandler(e.target.value)} value={todoHandler}/>
 :
 <p>Loading...</p>
 }

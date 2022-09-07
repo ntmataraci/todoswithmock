@@ -16,7 +16,8 @@ const changeDarkMode= () =>  {
 }
     return(
         <>
-        <h2 style={{padding:"0",margin:"0",textAlign:"center"}}>Todo or not todo... {username}</h2>
+        <h2 style={{padding:"0",margin:"0",textAlign:"center"}}>Todo or not todo... </h2>
+        <p style={{textAlign:"center"}}>Hello {username}</p>
         {username&&
         <button onClick={changeDarkMode} style={{margin:"auto",justifyContent:"center",display:"flex",borderRadius:"50%",height:"3rem",width:"3rem",color:darkModeSymbol?"orange":"black"}}>
             {darkModeSymbol?<BsSunFill style={{fontSize:"1.5rem",margin:"auto"}}/>:<BsFillMoonStarsFill style={{fontSize:"1.5rem",margin:"auto"}}/>}</button>
